@@ -1,0 +1,51 @@
+package naveenlakhchaura.aninterface;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.RelativeLayout;
+import android.widget.Button;
+import android.graphics.Color;
+import android.widget.EditText;
+
+public class MainActivity extends AppCompatActivity {
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+
+RelativeLayout naveenlayout=new RelativeLayout(this);
+naveenlayout.setBackground(getDrawable(R.drawable.back));
+RelativeLayout.LayoutParams buttonsdetails= new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
+RelativeLayout.LayoutParams.WRAP_CONTENT);
+RelativeLayout.LayoutParams Usernamedetails= new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
+RelativeLayout.LayoutParams.WRAP_CONTENT);
+RelativeLayout.LayoutParams passworddetails= new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
+RelativeLayout.LayoutParams.WRAP_CONTENT);
+buttonsdetails.addRule(RelativeLayout.CENTER_HORIZONTAL);
+buttonsdetails.addRule(RelativeLayout.CENTER_VERTICAL);
+
+Button redbuttojn=new Button(this);
+redbuttojn.setText("LOG IN");
+redbuttojn.setBackgroundColor(Color.LTGRAY);
+EditText username=new EditText(this);
+EditText password=new EditText(this);
+redbuttojn.setId(1);
+username.setId(2);
+password.setId(3);
+Usernamedetails.addRule(RelativeLayout.ABOVE,redbuttojn.getId());
+Usernamedetails.addRule(RelativeLayout.CENTER_HORIZONTAL);       Usernamedetails.addRule(RelativeLayout.TEXT_ALIGNMENT_CENTER);
+Usernamedetails.setMargins(0,0,0,50);
+passworddetails.addRule(RelativeLayout.ABOVE,username.getId());
+passworddetails.addRule(RelativeLayout.CENTER_HORIZONTAL);
+passworddetails.addRule(RelativeLayout.TEXT_ALIGNMENT_CENTER);
+passworddetails.setMargins(0,0,0,50);
+passworddetails.setMarginEnd(0);
+
+naveenlayout.addView(redbuttojn,buttonsdetails);
+naveenlayout.addView(username,Usernamedetails);
+naveenlayout.addView(password,passworddetails);
+
+
+setContentView(naveenlayout);
+}
+}
